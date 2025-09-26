@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Interactive Profile</title>
+  <style>
+    /* --- General Styles --- */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      color: #333;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    header {
+      background: #6200ea;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 20px;
+    }
+
+    /* --- Profile Section --- */
+    .profile {
+      text-align: center;
+    }
+
+    .profile img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid #6200ea;
+      margin-bottom: 15px;
+      transition: transform 0.3s;
+    }
+
+    .profile img:hover {
+      transform: scale(1.1);
+    }
+
+    .profile h2 {
+      margin: 10px 0;
+      font-size: 1.8rem;
+    }
+
+    .profile p {
+      color: #666;
+      font-size: 1rem;
+    }
+
+    /* --- About Section --- */
+    .about {
+      margin-top: 40px;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    .about h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+      color: #6200ea;
+    }
+
+    .about p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: center;
+      color: #555;
+    }
+
+    /* --- Skills Section --- */
+    .skills {
+      margin-top: 40px;
+    }
+
+    .skills h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+
+    .skill-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill {
+      padding: 10px 20px;
+      border: 2px solid #6200ea;
+      border-radius: 20px;
+      cursor: pointer;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    .skill:hover {
+      background: #6200ea;
+      color: white;
+    }
+
+    /* --- Projects Section --- */
+    .projects {
+      margin-top: 50px;
+    }
+
+    .projects h3 {
+      font-size: 1.5rem;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    .project-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .project {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+    }
+
+    .project h4 {
+      margin-bottom: 10px;
+      color: #6200ea;
+    }
+
+    .project p {
+      font-size: 0.95rem;
+      color: #555;
+      line-height: 2;
+    }
+
+    /* --- Contact Section --- */
+    .contact {
+      margin-top: 50px;
+      text-align: center;
+    }
+
+    .contact a {
+      text-decoration: none;
+      color: #6200ea;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    .contact a:hover {
+      color: #3700b3;
+    }
+
+    /* --- Toggle Button --- */
+    .toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background: #6200ea;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+
+    .toggle-btn:hover {
+      background: #3700b3;
+    }
+
+    /* --- Dark Mode --- */
+    .dark-mode {
+      background-color: #121212;
+      color: white;
+    }
+
+    .dark-mode header {
+      background: #3700b3;
+    }
+
+    .dark-mode .about,
+    .dark-mode .project {
+      background: #1e1e1e;
+      color: #ddd;
+    }
+
+    .dark-mode .skill {
+      border-color: #bb86fc;
+    }
+
+    .dark-mode .skill:hover {
+      background: #bb86fc;
+      color: black;
+    }
+
+    .dark-mode .contact a {
+      color: #bb86fc;
+    }
+
+    .dark-mode .toggle-btn {
+      background: #bb86fc;
+      color: black;
+    }
+
+    .dark-mode .toggle-btn:hover {
+      background: #6200ea;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleMode()">🌙 Dark Mode</button>
+
+  <header>
+    <h1>Mallika Portfolio</h1>
+  </header>
+
+  <div class="container">
+    <!-- Profile Section -->
+    <section class="profile">
+      <img src="https://cdn.pixabay.com/photo/2023/09/23/03/54/cartoon-8270185_1280.png" alt="Profile Picture">
+      <h2>Mallika Nagula </h2>
+      <p>Web Developer | Designer | Tech Enthusiast</p>
+    </section>
+
+    <!-- About Section -->
+    <section class="about">
+      <h3>About Me</h3>
+      <p>
+        Hi, I'm mallika! as a fresher  I'm passionate about building user-friendly websites and applications. 
+        With a strong background in front-end , I love solving problems 
+        with clean, efficient code. Beyond coding, I enjoy exploring new design trends, 
+        learning new technologies, and sharing knowledge with the tech community.
+      </p>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="skills">
+      <h3>My Skills</h3>
+      <div class="skill-list">
+        <div class="skill">HTML</div>
+        <div class="skill">CSS</div>
+        <div class="skill">JavaScript</div>
+        <div class="skill">React</div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects">
+      <h3>My Projects</h3>
+      <div class="project-list">
+        <div class="project">
+          <h4>Portfolio Website</h4>
+          <p>A personal portfolio showcasing my skills, projects, and contact details. Built with HTML, CSS, and JavaScript.</p>
+        </div>
+        <div class="project">
+          <h4>Task Manager App</h4>
+          <p>A simple to-do list application with features to add, edit, and delete tasks. Developed using React and Local Storage.</p>
+        </div>
+        <div class="project">
+          <h4>Weather App</h4>
+          <p>An app that fetches real-time weather data from an API and displays it with a clean UI. Built using JavaScript and OpenWeather API.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact">
+      <h3>Contact Me</h3>
+      <p>Email: <a href="mailto:nagulamallikayadav@.com">nagulamallikayadav@.com</a></p>
+      <p>
+        <a href="https://www.linkedin.com/in/mallika-nagula-234066297" target="-blank">
+          <image src="https://i.pinimg.com/originals/b2/f8/28/b2f828513f21444829a619ce563d4d4e.png"alt="linkedin"
+          style="width: 25; height: 25px; vertical-align: middle;">
+        </a>
+        </p>
+    </section>
+  </div>
+
+  <script>
+    // Toggle Light/Dark Mode
+    function toggleMode() {
+      document.body.classList.toggle("dark-mode");
+      const btn = document.querySelector(".toggle-btn");
+      if (document.body.classList.contains("dark-mode")) {
+        btn.textContent = "☀️ Light Mode";
+      } else {
+        btn.textContent = "🌙 Dark Mode";
+      }
+    }
+  </script>
+</body>
+</html>
